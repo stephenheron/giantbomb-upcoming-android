@@ -1,12 +1,11 @@
 package uk.co.stephenheron.giantbombupcoming;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,6 +43,7 @@ public class UpcomingRecyclerViewAdapter extends RecyclerView.Adapter<UpcomingRe
     {
         Context context = imageView.getContext();
         String imageUrl = event.getImageUrl().toString();
+
         Picasso.with(context).load(imageUrl).into(imageView);
     }
 
