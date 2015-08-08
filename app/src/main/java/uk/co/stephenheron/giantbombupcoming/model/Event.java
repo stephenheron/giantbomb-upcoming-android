@@ -2,17 +2,20 @@ package uk.co.stephenheron.giantbombupcoming.model;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Event {
-    private String name;
+    private String title;
+    private String subtitle;
     private Date startDateTime;
     private String description;
     private URL imageUrl;
     private Boolean premium;
 
-    public Event(String name, Date startDateTime, String description, String imageUrl, Boolean premium) {
-        this.name = name;
+    public Event(String title, String subtitle, Date startDateTime, String description, String imageUrl, Boolean premium) {
+        this.title = title;
+        this.subtitle = subtitle;
         this.startDateTime = startDateTime;
         this.description = description;
         this.premium = premium;
@@ -25,12 +28,21 @@ public class Event {
 
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
     }
 
     public Date getStartDateTime() {
         return startDateTime;
+    }
+
+    public String getStartDateTimeAsString() {
+        SimpleDateFormat formatter = new SimpleDateFormat("MMM d, yyyy h:m a");
+        return formatter.format(startDateTime);
     }
 
     public String getDescription() {

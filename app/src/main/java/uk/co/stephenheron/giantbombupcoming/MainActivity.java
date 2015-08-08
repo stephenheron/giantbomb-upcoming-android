@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         List<Event> upcomingEvents = new ArrayList<Event>();
 
         upcomingEvents.add(new Event(
-                "Quick Look: Beyond Eyes",
+                "Beyond Eyes",
+                "Quick Look",
                 new Date(),
                 "A game about a blind 10 year-old girl who is looking for her pet cat. Developed by Tiger & Squid and published by Team 17.",
                 "http://static.giantbomb.com/uploads/scale_super/18/187968/2731674-rsz_479001_251903824954442_1046625792_o.jpg",
@@ -49,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         ));
 
         upcomingEvents.add(new Event(
-                "Quick Look: Submerged",
+                "Submerged",
+                "Quick Look",
                 new Date(),
                 "A game about being trapped in an ancient, half-submerged city",
                 "http://static.giantbomb.com/uploads/scale_super/8/84290/2771166-2347371421-heade.jpg",
@@ -57,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
         ));
 
         upcomingEvents.add(new Event(
-                "Unfinished: Armello 08/06/2015",
+                "Armello 08/06/2015",
+                "Unfinished",
                 new Date(),
                 "Armello is a tablet multiplayer card and board game set in a fairy-tale animal kingdom. It is the debut title from League of Geeks.",
                 "http://static.giantbomb.com/uploads/scale_super/0/1992/2529920-screen+shot+2013-08-15+at+1.53.51+pm.png",
@@ -65,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
         ));
 
         upcomingEvents.add(new Event(
-                "Metal Gear Scanlon 4 - Part 09",
+                "Metal Gear Scanlon 4",
+                "Part 09",
                 new Date(),
                 "Kept you waiting huh?",
                 "http://static.giantbomb.com/uploads/scale_super/0/8273/2676362-2675497-metal%2Bgear%2Bscanlon%2Blogo.jpg",

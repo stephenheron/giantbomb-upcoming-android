@@ -35,15 +35,20 @@ public class UpcomingRecyclerViewAdapter extends RecyclerView.Adapter<UpcomingRe
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         Event event = upcomingEvents.get(position);
 
-        viewHolder.textView.setText(event.getName());
+        viewHolder.titleTextView.setText(event.getTitle());
+        viewHolder.subtitleTextView.setText(event.getSubtitle() + " - " + event.getStartDateTimeAsString());
+        viewHolder.descriptionTextView.setText(event.getDescription());
         setEventImage(viewHolder.imageView, event);
+
+        if(event.getPremium()) {
+            viewHolder.itemView.findViewById(R.id.upcoming_event_premium).setVisibility(View.VISIBLE);
+        }
     }
 
     private void setEventImage(ImageView imageView, Event event)
     {
         Context context = imageView.getContext();
         String imageUrl = event.getImageUrl().toString();
-
         Picasso.with(context).load(imageUrl).into(imageView);
     }
 
@@ -53,13 +58,17 @@ public class UpcomingRecyclerViewAdapter extends RecyclerView.Adapter<UpcomingRe
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView;
         public ImageView imageView;
+        public TextView titleTextView;
+        public TextView subtitleTextView;
+        public TextView descriptionTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.textView = (TextView) itemView.findViewById(R.id.upcoming_event_info_text);
             this.imageView = (ImageView) itemView.findViewById(R.id.upcoming_event_image);
+            this.titleTextView = (TextView) itemView.findViewById(R.id.upcoming_event_title_text);
+            this.subtitleTextView = (TextView) itemView.findViewById(R.id.upcoming_event_subtitle_text);
+            this.descriptionTextView = (TextView) itemView.findViewById(R.id.upcoming_event_description);
         }
     }
 
