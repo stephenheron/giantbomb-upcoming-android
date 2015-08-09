@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 
 import java.util.List;
 
@@ -51,21 +52,16 @@ public class UpcomingRecyclerViewAdapter extends RecyclerView.Adapter<UpcomingRe
         Context context = imageView.getContext();
         int gbLogo = R.drawable.gb_logo;
 
+        Picasso picasso = Picasso.with(context);
+        RequestCreator requestCreator;
         if(event.getImageUrl() != null) {
-            String imageUrl = event.getImageUrl().toString();
-            Picasso.with(context)
-                    .load(imageUrl)
-                    .placeholder(gbLogo)
-                    .into(imageView);
+           requestCreator = picasso.load(event.getImageUrl().toString());
         } else {
-            Drawable drawable;
-            if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP){
-                drawable = context.getResources().getDrawable(gbLogo, context.getTheme());
-            } else {
-                drawable = context.getResources().getDrawable(gbLogo);
-            }
-            imageView.setImageDrawable(drawable);
+            requestCreator = picasso.load(gbLogo);
         }
+
+        requestCreator.placeholder(gbLogo).into(imageView);
+
     }
 
     @Override
