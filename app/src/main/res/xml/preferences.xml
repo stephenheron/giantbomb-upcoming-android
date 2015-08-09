@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:key="notify_before"
+        android:title="Notification schedule"
+        android:summary="How long before an event starts should a notification be generated"
+        android:defaultValue="0"
+        android:entries="@array/notify_before_entries"
+        android:entryValues="@array/notify_before_entries_values" />
+
+    <PreferenceCategory
+        android:key="notifications"
+        android:title="Notifications">
+    </PreferenceCategory>
+</PreferenceScreen>
