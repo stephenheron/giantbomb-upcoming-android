@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,7 +25,20 @@ public class MainActivity extends AppCompatActivity {
 
         setDefaultValues();
 
+        if(getUpcomingEvents().size() == 0) {
+            displayNoEventsMessage();
+        }
+
         initializeRecyclerView();
+    }
+
+    private void displayNoEventsMessage()
+    {
+        View upcomingList = findViewById(R.id.upcoming_recycler_view);
+        View noEventsMessage = findViewById(R.id.nothing_upcoming);
+
+        upcomingList.setVisibility(View.INVISIBLE);
+        noEventsMessage.setVisibility(View.VISIBLE);
     }
 
     private void setDefaultValues()
