@@ -2,6 +2,7 @@ package uk.co.stephenheron.giantbombupcoming;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,8 +49,23 @@ public class UpcomingRecyclerViewAdapter extends RecyclerView.Adapter<UpcomingRe
     private void setEventImage(ImageView imageView, Event event)
     {
         Context context = imageView.getContext();
-        String imageUrl = event.getImageUrl().toString();
-        Picasso.with(context).load(imageUrl).into(imageView);
+        int gbLogo = R.drawable.gb_logo;
+
+        if(event.getImageUrl() != null) {
+            String imageUrl = event.getImageUrl().toString();
+            Picasso.with(context)
+                    .load(imageUrl)
+                    .placeholder(gbLogo)
+                    .into(imageView);
+        } else {
+            Drawable drawable;
+            if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP){
+                drawable = context.getResources().getDrawable(gbLogo, context.getTheme());
+            } else {
+                drawable = context.getResources().getDrawable(gbLogo);
+            }
+            imageView.setImageDrawable(drawable);
+        }
     }
 
     @Override

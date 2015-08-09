@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 "Quick Look",
                 new Date(),
                 "A game about a blind 10 year-old girl who is looking for her pet cat. Developed by Tiger & Squid and published by Team 17.",
-                "http://static.giantbomb.com/uploads/scale_super/18/187968/2731674-rsz_479001_251903824954442_1046625792_o.jpg",
+                null,
                 false
         ));
 
